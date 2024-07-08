@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: TgBotWeather
+  datasource:
+    url: jdbc:postgresql://localhost:5432/TgBot
+    username: postgres
+    password: 123456
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+  liquibase:
+    change-log: classpath:db/changelog/v.1.0.0/db.changelog-master.yaml
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+
+bot:
+  token: 7094292260:AAE556_d4koByYGTB4642QNmW2QLInk
+  name: TestWeatherNNjackBot
+server:
+  port: 8082
+

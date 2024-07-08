@@ -1,0 +1,60 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-geographical-objects-table
+      author: nnJack
+      changes:
+        - createTable:
+            tableName: geographical_objects
+            columns:
+              - column:
+                  name: id
+                  type: integer
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_geog-obj
+                    nullable: false
+              - column:
+                  name: country
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: name_ru
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: name_en
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: district_ru
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: district_en
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: sub_district_ru
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: sub_district_en
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: kind_ru
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: kind_en
+                  type: varchar(255)
+                  constraints:
+                    nullable: true

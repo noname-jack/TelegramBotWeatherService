@@ -1,0 +1,54 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-user-geographical-object-table
+      author: nnJack
+      changes:
+        - createTable:
+            tableName: user_geographical_object
+            columns:
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: geographical_object_id
+                  type: integer
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+  - changeSet:
+      id: add-primary-foreign-keys
+      author: nnJack
+      changes:
+        - addPrimaryKey:
+            columnNames: user_id, geographical_object_id
+            tableName: user_geographical_object
+
+  - changeSet:
+      id: add-user-geographical-object-foreign-key-user
+      author: nnJack
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: user_geographical_object
+            constraintName: FK_user_geographical_object_user
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: users
+
+  - changeSet:
+      id: add-user-geographical-object-foreign-key-geographical-object
+      author: nnJack
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: geographical_object_id
+            baseTableName: user_geographical_object
+            constraintName: FK_user_geographical_object_geographical_object
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: geographical_objects
